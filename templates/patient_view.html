@@ -1,2 +1,13 @@
 <h1 align='center'>Aradhya Hospital</h1>
 <h2 align='center'>Patient Database</h2>
+{% for record in records %}
+    <b>Doctor:</b> {{ record.doctor }}<br>
+    <b>Patient Name:</b> {{ record.paitent }}<br>
+    <b>Patient Weight:</b> {{ record.weight }}<br>
+    <b>Patient Disease: </b> {{ record.disease }}<br>
+    <b>Patient Diagnosis: </b> {{ record.diagnosis }}<br>
+    <b>Patient Suggestion: </b> {{ record.suggestion }}<br>
+    <b>Fees: </b> {{ record.fees }}<br>
+
+    <br><br>
+{% endfor %}
