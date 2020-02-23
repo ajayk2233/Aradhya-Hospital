@@ -2,9 +2,15 @@ from django.shortcuts import render,HttpResponse,redirect
 from .models import Record,Doctor,Patient
 
 # Show all OPD Record
+# def patient_view(request):
+#     records = Record.objects.all()
+#     return render(request, 'patient_data/patient_view.html',{'records':records})
+
+# OPD Record Filter by Date
 def patient_view(request):
     records = Record.objects.all()
     return render(request, 'patient_data/patient_view.html',{'records':records})
+
 # Show all Patient Personal Details
 def patient_personal_details(request,col_name=None):
     if col_name is None:
@@ -35,3 +41,16 @@ def p_records(request,id):
 def d_records(request,id):
     d_records = Doctor.objects.get(id=id)
     return render(request, 'patient_data/d_records.html',{'record':d_records})
+
+def collection(request):
+    if request.method == 'POST':
+        start_date = request.POST.get("date1")
+        end_date = request.POST.get('date2')
+        cash = 0
+        try:
+            for i in Record.objects.filter(date_created__range=[start_date, end_date]):
+                cash = cash + i.fees
+        except:
+            return render(request,'collection.html',{'message':'Kindly Enter Valid Date'})
+        return render(request,'collection.html',{'cash':cash})
+    return render(request,'collection.html',{'message':'Kindly select Date to see collection'})

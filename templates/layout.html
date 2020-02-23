@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.6">
-    <title>Product example · Bootstrap</title>
+    <title>Aradhya Hospital</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
@@ -54,7 +54,7 @@
     <a class="py-2 d-none d-md-inline-block" href="{% url 'patient_personal_details' %}">Patient Data</a>
     <a class="py-2 d-none d-md-inline-block" href="{% url 'doctor_personal_details' %}">Doctors Data</a>
     <a class="py-2 d-none d-md-inline-block" href="{% url 'patient_view' %}">OPD Record</a>
-    <a class="py-2 d-none d-md-inline-block" href="#">Support</a>
+    <a class="py-2 d-none d-md-inline-block" href="{% url 'collection' %}">Daily Collection</a>
     <a class="py-2 d-none d-md-inline-block" href="#">Career</a>
     <a class="py-2 d-none d-md-inline-block" href="#">Contact US</a>
   </div>
@@ -65,7 +65,11 @@
 <footer class="container py-5">
   <div class="row">
     <div class="col-12 col-md">
-      <small class="d-block mb-3 text-muted">&copy; 2020-2025</small>
+      <p class="d-block mb-3 text-muted">
+        &copy; 2020-2025
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-twitter"></a>
+      </p>
     </div>
     
 
@@ -74,5 +78,7 @@
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<!-- Social Media Buttons Links from W3 School -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </body>
 </html>
