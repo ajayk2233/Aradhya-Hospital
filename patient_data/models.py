@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 class Doctor(models.Model):
     doctor_name = models.CharField(max_length=40)
     doctor_address = models.TextField()
+    doctor_city = models.CharField(max_length=30,default='Unknown')
     doctor_contact = models.CharField(max_length=10)
     doctor_age = models.IntegerField()
     doctor_ID = models.IntegerField(unique=True)
@@ -14,8 +15,9 @@ class Doctor(models.Model):
 class Patient(models.Model):
     patient_name = models.CharField(max_length=40)
     patient_address = models.TextField()
+    patient_city = models.CharField(max_length=30,default='Unknown')
     patient_contact = models.CharField(max_length=10)
-    pateint_age = models.IntegerField()
+    patient_age = models.IntegerField()
     patient_ID = models.IntegerField(unique=True)
     patient_registration_date = models.DateField(auto_now_add=True)
     def __str__(self):
@@ -24,10 +26,10 @@ class Patient(models.Model):
 
 class Record(models.Model):
     doctor = models.ForeignKey(Doctor,on_delete=models.CASCADE)
-    paitent = models.ForeignKey(Patient,on_delete=models.CASCADE)
+    patient = models.ForeignKey(Patient,on_delete=models.CASCADE)
     weight = models.IntegerField()
     disease = models.TextField()
     diagnosis = models.TextField()
     suggestion = models.TextField()
     fees = models.IntegerField()
-
+    date_created = models.DateField(auto_now_add=True,blank=True,null=True)

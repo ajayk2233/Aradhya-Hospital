@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<h1 align='center'>Aradhya Hospital</h1>
+<h2 align='center'>Patient Personal Details</h2>
+<table align="center" cellpadding='10px'>
+    <tr>
+        <th style="border-bottom:1px solid rgb(247, 84, 8);">Patient Name</th>
+        <th style="border-bottom:1px solid rgb(247, 84, 8);">Address</th>
+        <th style="border-bottom:1px solid rgb(247, 84, 8);">Contact</th>
+        <th style="border-bottom:1px solid rgb(247, 84, 8);">Age</th>
+        <th style="border-bottom:1px solid rgb(247, 84, 8);">Patient ID</th>
+        <th style="border-bottom:1px solid rgb(247, 84, 8);">Registration Date</th>
+        <th style="border-bottom:1px solid rgb(247, 84, 8);" colspan="2">Actions</th>
+    </tr>
+    <tr>
+    <td style="border-bottom:1px solid rgb(255, 166, 0);">{{ record.patient_name }}</td>
+    <td style="border-bottom:1px solid rgb(255, 166, 0);">{{ record.patient_address }}</td>
+    <td style="border-bottom:1px solid rgb(255, 166, 0);">{{ record.patient_contact }}</td>
+    <td style="border-bottom:1px solid rgb(255, 166, 0);">{{ record.pateint_age }}</td>
+    <td style="border-bottom:1px solid rgb(255, 166, 0);">{{ record.patient_ID }}</td>
+    <td style="border-bottom:1px solid rgb(255, 166, 0);">{{ record.patient_registration_date }}</td>
+    <td style="border-bottom:1px solid rgb(255, 166, 0);"><a href="/patient_view/">back</td>
+    </tr>
+    <br><br>
+</table>
+{% endblock %}

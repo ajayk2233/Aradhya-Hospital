@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<h1 align='center'>Aradhya Hospital</h1>
+<h2 align='center'>All Doctors Personal Details</h2>
+<table align="center" cellpadding='10px'>
+    <tr>
+        <th style="border-bottom:1px solid rgb(247, 84, 8);">Doctor Name</th>
+        <th style="border-bottom:1px solid rgb(247, 84, 8);">Address</th>
+        <th style="border-bottom:1px solid rgb(247, 84, 8);">Contact</th>
+        <th style="border-bottom:1px solid rgb(247, 84, 8);">Age</th>
+        <th style="border-bottom:1px solid rgb(247, 84, 8);">Doctor ID</th>
+        <th style="border-bottom:1px solid rgb(247, 84, 8);">Join Date</th>
+        <th style="border-bottom:1px solid rgb(247, 84, 8);" colspan="2">Actions</th>
+    </tr>
+    {% for record in doctor %}
+    <tr>
+    <td style="border-bottom:1px solid rgb(255, 166, 0);">{{ record.doctor_name }}</td>
+    <td style="border-bottom:1px solid rgb(255, 166, 0);">{{ record.doctor_address }}</td>
+    <td style="border-bottom:1px solid rgb(255, 166, 0);">{{ record.doctor_contact }}</td>
+    <td style="border-bottom:1px solid rgb(255, 166, 0);">{{ record.doctor_age }}</td>
+
+    <td style="border-bottom:1px solid rgb(255, 166, 0);">{{ record.doctor_ID }}</td>
+    <td style="border-bottom:1px solid rgb(255, 166, 0);">{{ record.doctor_join_date }}</td>
+    <td style="border-bottom:1px solid rgb(255, 166, 0);"><a href="/patient_view/">Comming Soon</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

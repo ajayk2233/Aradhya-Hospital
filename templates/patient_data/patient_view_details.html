@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<h1 align='center'>Aradhya Hospital</h1>
+<h2 align='center'>Patient Database</h2>
+<div style="color:saddlebrown">
+    <h3><b>Doctor:</b> <a href="/patient_view/d_records/{{ details.id }}">{{ details.doctor }}</a><br></h3>
+    <h3><b>Patient Name:</b> {{ details.patient }}<br></h3>
+    <h3><b>Patient Weight:</b> {{ details.weight }}<br></h3>
+    <h3><b>Patient Disease: </b> {{ details.disease }}<br></h3>
+    <h3><b>Patient Diagnosis: </b> {{ details.diagnosis }}<br></h3>
+    <h3><b>Patient Suggestion: </b> {{ details.suggestion }}<br></h3>
+    <h3><b>Fees: </b> {{ details.fees }}<br></h3>
+    <h3><b>Date: </b> {{ details.date_created }}</h3>
+    <h3><a href="{% url 'patient_view' %}">back</a></h3>
+</div>
+    <br><br>
+{% endblock %}
