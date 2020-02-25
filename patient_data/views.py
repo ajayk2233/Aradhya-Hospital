@@ -1,5 +1,5 @@
 from django.shortcuts import render,HttpResponse,redirect
-from .models import Record,Doctor,Patient
+from .models import Record,Doctor,Patient,Career
 
 # Show all OPD Record
 # def patient_view(request):
@@ -54,3 +54,19 @@ def collection(request):
             return render(request,'collection.html',{'message':'Kindly Enter Valid Date'})
         return render(request,'collection.html',{'cash':cash})
     return render(request,'collection.html',{'message':'Kindly select Date to see collection'})
+
+def career(request):
+    if request.method == 'POST':
+        job = Career()
+        email = request.POST['email']
+        job_post = request.POST['job_post']
+
+        for i in  Career.objects.all():
+            if i.email == email:
+                return render(request, 'career.html',{'message':'You have already Applied with current email id'})
+        job.email = email
+        job.job_post = job_post
+        job.save()
+        message = f"Congratulations {job.email} you will shortly get email regarding Job Notification."
+        return render(request, 'career.html',{'message':message})
+    return render(request, 'career.html')

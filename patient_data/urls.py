@@ -12,4 +12,6 @@ urlpatterns = [
     path('patient_personal_order_by/<str:col_name>',views.patient_personal_order_by,name='patient_personal_order_by'),
     path('doctor_personal_details/',views.doctor_personal_details,name='doctor_personal_details'),
     path('collection/',views.collection,name='collection'),
+# Career Option
+    path('career/',views.career,name='career'),
 ]

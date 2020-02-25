@@ -33,3 +33,10 @@ class Record(models.Model):
     suggestion = models.TextField()
     fees = models.IntegerField()
     date_created = models.DateField(auto_now_add=True,blank=True,null=True)
+    def __str__(self):
+        return self.date_created
+
+class Career(models.Model):
+    email = models.EmailField()
+    job_post = models.CharField(max_length=20)
+    date_applied = models.DateField(auto_now_add=True,blank=True,null=True)
