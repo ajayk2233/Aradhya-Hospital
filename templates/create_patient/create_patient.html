@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+</head>
+<body>
+    <form method="POST">
+    {% csrf_token %}
+    <div align="center"><br><hr>
+        {{form.patient_name.label_tag}}
+            {{form.patient_name}}
+        {{form.patient_address.label_tag}}
+            {{form.patient_address}}
+        {{form.patient_city.label_tag}}
+            {{form.patient_city}}<br><hr>
+        {{form.patient_contact.label_tag}}
+            {{form.patient_contact}}
+        {{form.patient_age.label_tag}}
+            {{form.patient_age}}
+        {{form.patient_ID.label_tag}}
+            {{form.patient_ID}}<br><hr>
+        <input type="submit" value="Add Patient" class="btn btn-primary">
+    </div>
+    </form>
+</body>
+</html>
+
+{% endblock %}

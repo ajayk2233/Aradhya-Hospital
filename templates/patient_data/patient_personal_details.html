@@ -12,7 +12,9 @@
         <th style="border-bottom:1px solid rgb(247, 84, 8);"><a href="/patient_view/patient_personal_order_by/patient_age">Age</a></th>
         <th style="border-bottom:1px solid rgb(247, 84, 8);"><a href="/patient_view/patient_personal_order_by/patient_ID">Patient ID</a></th>
         <th style="border-bottom:1px solid rgb(247, 84, 8);"><a href="/patient_view/patient_personal_order_by/patient_registration_date">Registration Date</a></th>
-        <th style="border-bottom:1px solid rgb(247, 84, 8);" colspan="2">Actions</th>
+        <th style="border-bottom:1px solid rgb(247, 84, 8);" colspan="2">
+            <a href="{% url 'create_patient' %}"><h5 class="btn btn-secondary">Create New</h5></a>
+        </th>
     </tr>
     {% for record in patient %}
     <tr>
@@ -23,7 +25,7 @@
     <td style="border-bottom:1px solid rgb(255, 166, 0);">{{ record.patient_age }}</td>
     <td style="border-bottom:1px solid rgb(255, 166, 0);">{{ record.patient_ID }}</td>
     <td style="border-bottom:1px solid rgb(255, 166, 0);">{{ record.patient_registration_date }}</td>
-    <td style="border-bottom:1px solid rgb(255, 166, 0);"><a href="/patient_view/">Comming Soon</td>
+    <td style="border-bottom:1px solid rgb(255, 166, 0);"><a href="/patient_view/update_patient/{{record.id}}">Edit</td>
     </tr>
     {% endfor %}
 </table>

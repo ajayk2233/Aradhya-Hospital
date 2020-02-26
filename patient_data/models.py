@@ -34,7 +34,7 @@ class Record(models.Model):
     fees = models.IntegerField()
     date_created = models.DateField(auto_now_add=True,blank=True,null=True)
     def __str__(self):
-        return self.date_created
+        return f"patient: {self.patient.patient_name}"
 
 class Career(models.Model):
     email = models.EmailField()

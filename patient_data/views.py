@@ -2,9 +2,6 @@ from django.shortcuts import render,HttpResponse,redirect
 from .models import Record,Doctor,Patient,Career
 
 # Show all OPD Record
-# def patient_view(request):
-#     records = Record.objects.all()
-#     return render(request, 'patient_data/patient_view.html',{'records':records})
 
 # OPD Record Filter by Date
 def patient_view(request):
@@ -19,6 +16,7 @@ def patient_personal_details(request,col_name=None):
     else:
         patient = Patient.objects.all().order_by(col_name)
         return render(request, 'patient_data/patient_personal_details.html',{'patient':patient})
+        
 # Show all Patient Personal Details order by Age
 def patient_personal_order_by(request,col_name):
     patient = Patient.objects.all().order_by(col_name)
