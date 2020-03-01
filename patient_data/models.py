@@ -40,3 +40,8 @@ class Career(models.Model):
     email = models.EmailField()
     job_post = models.CharField(max_length=20)
     date_applied = models.DateField(auto_now_add=True,blank=True,null=True)
+
+class ContactUs(models.Model):
+    name = models.CharField(max_length=30)
+    email = models.EmailField()
+    message = models.TextField()

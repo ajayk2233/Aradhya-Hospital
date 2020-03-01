@@ -45,21 +45,57 @@
     <link href="product.css" rel="stylesheet">
   </head>
   <body>
-    <nav class="site-header sticky-top py-1">
-  <div class="container d-flex flex-column flex-md-row justify-content-between">
-    <a class="py-2" href="#" aria-label="Product">
-    </a>
-    <a class="py-2 d-none d-md-inline-block" href="{% url 'home' %}">Home</a>
-    <a class="py-2 d-none d-md-inline-block" href="{% url 'patient_personal_details' %}">Patient Data</a>
-    <a class="py-2 d-none d-md-inline-block" href="{% url 'doctor_personal_details' %}">Doctors Data</a>
-    <a class="py-2 d-none d-md-inline-block" href="{% url 'patient_view' %}">OPD Record</a>
-    <a class="py-2 d-none d-md-inline-block" href="{% url 'collection' %}">Daily Collection</a>
-    <a class="py-2 d-none d-md-inline-block" href="{% url 'career' %}">Career</a>
-    <a class="py-2 d-none d-md-inline-block" href="#">Contact US</a>
-    <a class="py-2 d-none d-md-inline-block" href="{% url 'create_record' %}">Create Record</a>
-  </div>
-</nav>
-
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Aradhya</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'gallery_view' %}">Gallery</a>
+          </li>
+          {% if user.is_authenticated %}
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'patient_personal_details' %}">Patient Data</a>
+          </li>
+          <li class="nav-item active">
+              <a class="nav-link" href="{% url 'doctor_personal_details' %}">Doctors Data<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'patient_view' %}">OPD Record</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'collection' %}">Daily Collection</a>
+            </li>
+            {% endif %}
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'career' %}">Career</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'contactus' %}">Contact Us</a>
+            </li>
+            {% if user.is_authenticated %}
+            <li class="nav-item active">
+              <a class="nav-link" href="javascript:{document.getElementById('delete').submit()}">Logout</a>
+            </li>
+            <form method="POST" id="delete" action="{% url 'signout' %}">
+              {% csrf_token %}
+              <input type="hidden">
+            </form>
+            {% endif %}
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+<hr>
 {% block content %}
 {% endblock %}
 <footer class="container py-5">
@@ -71,8 +107,6 @@
         <a href="#" class="fa fa-twitter"></a>
       </p>
     </div>
-    
-
   </div>
 </footer>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

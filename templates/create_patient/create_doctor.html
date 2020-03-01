@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+</head>
+<body>
+    <form method="POST">
+    {% csrf_token %}
+    <div align="center"><br><hr>
+        {{form.doctor_name.label_tag}}
+            {{form.doctor_name}}
+        {{form.doctor_address.label_tag}}
+            {{form.doctor_address}}
+        {{form.doctor_city.label_tag}}
+            {{form.doctor_city}}<br><hr>
+        {{form.doctor_contact.label_tag}}
+            {{form.doctor_contact}}
+        {{form.doctor_age.label_tag}}
+            {{form.doctor_age}}
+        {{form.doctor_ID.label_tag}}
+            {{form.doctor_ID}}<br><hr>
+        <input type="submit" value="Add Doctor" class="btn btn-primary">
+        <a href="{% url 'doctor_personal_details' %}" class="btn btn-danger">Cancel</a>
+    </div>
+    </form>
+    
+</body>
+</html>
+
+{% endblock %}

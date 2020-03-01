@@ -4,19 +4,27 @@
 <h1 align='center'>Aradhya Hospital</h1>
 <h2 align='center'>OPD Record</h2>
 <table align="center" cellpadding=10px>
-    <tr align="center">
-        <th style="font-family: 'Courier New', Courier, monospace; border-bottom:1px solid rgb(247, 84, 8);"><h5>Patient Name</h5></th>
-        <th style="font-family: 'Courier New', Courier, monospace; border-bottom:1px solid rgb(247, 84, 8);"><h5>Date</h5></th>
-        <th style="font-family: 'Courier New', Courier, monospace; border-bottom:1px solid rgb(247, 84, 8);" colspan="2"><a href="{% url 'create_record' %}"><h5 class="btn btn-secondary">Create New</h5></a></th>
+    <tr align="center"
+    style="
+    font-size: larger;
+    background-color:rgb(74, 165, 74);
+    color: white;
+    border-bottom:1px solid rgb(247, 84, 8);">
+        <th><h5>OPD ID</h5></th>
+        <th><h5>Patient Name</h5></th>
+        <th><h5>Date</h5></th>
+        <th colspan="2"><a href="{% url 'create_record' %}"><h5 class="btn btn-warning">Create New</h5></a></th>
     </tr>
 {% for record in records %}
-    <tr>
-    <td style="border-bottom:1px solid rgb(255, 166, 0);"><a href="p_records/{{ record.id }}">{{ record.patient }}</a></td>
-    <td style="border-bottom:1px solid rgb(255, 166, 0);">{{ record.date_created }}</td>
-    <td style="border-bottom:1px solid rgb(255, 166, 0);">
-        <a href="/patient_view/details/{{record.id}}">Details</a>
-        <a href="/patient_view/update_record/{{record.id}}">Edit</a>
-    </td>
+    <tr style="border-bottom:1px solid rgb(255, 166, 0);">
+        <td>{{ record.id }}</td>
+        <td><a style="color:black;" href="p_records/{{ record.patient.id }}"><u>{{ record.patient }}</u></a></td>
+
+        <td>{{ record.date_created }}</td>
+        <td>
+            <a class="btn btn-success" href="/patient_view/details/{{record.id}}">Details</a>
+            <a class="btn btn-success" href="/patient_view/update_record/{{record.id}}">Edit</a>
+        </td>
     </tr>
 
 {% endfor %}

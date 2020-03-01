@@ -21,19 +21,25 @@ urlpatterns = [
     path('create_patient/',views2.CreatePatient.as_view(),name='create_patient'),
 # Update Patient Personal Record
     path('update_patient/<int:pk>',views2.UpdatePatient.as_view(),name='update_patient'),
-    
-# 3 Doctor
-# Doctors Single Personal Record
-    path('d_records/<int:id>/',views.d_records,name='d_record'),
-
-# Patients Personal Record order by Column Name/Descending Order
+# ShowPatients Personal Record order by Column Name/Descending Order
     path('patient_personal_details/<str:col_name>',views.patient_personal_details,name='patient_personal_details'),
-# Patient Personal Details Sort by Ascending Order
+# Show Patient Personal Details Sort by Ascending Order
     path('patient_personal_order_by/<str:col_name>',views.patient_personal_order_by,name='patient_personal_order_by'),
-# Doctor Personal Details
+
+# 3 Doctor
+# Show Doctor Personal Records
     path('doctor_personal_details/',views.doctor_personal_details,name='doctor_personal_details'),
+# Show Doctor Single Personal Record
+    path('d_records/<int:id>/',views.d_records,name='d_record'),
+# Create Doctor Personal Record
+    path('create_doctor/',views2.CreateDoctor.as_view(),name='create_doctor'),
+# Update Doctor Personal Record
+    path('update_doctor/<int:pk>',views2.UpdateDoctor.as_view(),name='update_doctor'),
+
 # Daily/Selected Duration Collection
     path('collection/',views.collection,name='collection'),
 # Career Option
     path('career/',views.career,name='career'),
+# Career Option
+    path('contactus/',views.contactus,name='contactus'),
 ]

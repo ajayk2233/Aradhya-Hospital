@@ -3,16 +3,21 @@
 
 <h1 align='center'>Aradhya Hospital</h1>
 <h2 align='center'>All Patient Personal Details</h2>
-<table align="center" cellpadding='10px'>
-    <tr>
-        <th style="border-bottom:1px solid rgb(247, 84, 8);"><a href="/patient_view/patient_personal_details/-patient_name">Patient Name</a></th>
-        <th style="border-bottom:1px solid rgb(247, 84, 8);">Address</th>
-        <th style="border-bottom:1px solid rgb(247, 84, 8);"><a href="/patient_view/patient_personal_details/-patient_city">City</a></th>
-        <th style="border-bottom:1px solid rgb(247, 84, 8);">Contact</th>
-        <th style="border-bottom:1px solid rgb(247, 84, 8);"><a href="/patient_view/patient_personal_details/-patient_age">Age</a></th>
-        <th style="border-bottom:1px solid rgb(247, 84, 8);"><a href="/patient_view/patient_personal_details/-patient_ID">Patient ID</a></th>
-        <th style="border-bottom:1px solid rgb(247, 84, 8);"><a href="/patient_view/patient_personal_details/-patient_registration_date">Registration Date</a></th>
-        <th style="border-bottom:1px solid rgb(247, 84, 8);" colspan="2">Actions</th>
+<table align="center" cellpadding='5px'>
+    <tr align="center" style="font-size: large;
+    font-family:sans-serif;
+    color: white;
+    border-bottom:1px solid rgb(247, 84, 8);
+    border-right-style: double;
+    background-color:rgb(74, 165, 74);">
+        <th><a style="color: white;" href="/patient_view/patient_personal_details/-patient_name">P-Name</a></th>
+        <th>Address</th>
+        <th><a style="color: white;" href="/patient_view/patient_personal_details/-patient_city">City</a></th>
+        <th>Contact</th>
+        <th><a style="color: white;" href="/patient_view/patient_personal_details/-patient_age">Age</a></th>
+        <th><a style="color: white;" href="/patient_view/patient_personal_details/-patient_ID">P-ID</a></th>
+        <th><a style="color: white;" href="/patient_view/patient_personal_details/-patient_registration_date">Reg-Date</a></th>
+        <th style="color: white;" colspan="2">Actions</th>
     </tr>
     {% for record in patient %}
     <tr>
@@ -23,7 +28,7 @@
     <td style="border-bottom:1px solid rgb(255, 166, 0);">{{ record.patient_age }}</td>
     <td style="border-bottom:1px solid rgb(255, 166, 0);">{{ record.patient_ID }}</td>
     <td style="border-bottom:1px solid rgb(255, 166, 0);">{{ record.patient_registration_date }}</td>
-    <td style="border-bottom:1px solid rgb(255, 166, 0);"><a href="/patient_view/">Comming Soon</td>
+    <td style="border-bottom:1px solid rgb(255, 166, 0);"><aa class="btn btn-success"  href="/patient_view/">Comming Soon</td>
     </tr>
     {% endfor %}
 </table>

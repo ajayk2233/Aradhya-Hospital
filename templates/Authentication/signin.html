@@ -1,0 +1,35 @@
+{% extends  'layout.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+</head>
+<body class="text-center">
+    <form action="{{request.build_absolute_uri}}" method="POST" class="form-signin">
+        {% csrf_token %}
+      <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">Own Aradhya Hospital</h1>
+      <label for="inputEmail" class="sr-only">Username</label>
+      <input type="text" id="inputEmail" name="username" class="form-control" placeholder="Username" required autofocus>
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+      <input class="btn btn-lg btn-primary btn-block" value="Signin !" type="submit">
+      {% if message %}
+    {{message}}
+    {% endif %}
+    </form>
+  </body>
+    
+        
+    
+</body>
+</html>
+{% endblock %}

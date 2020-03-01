@@ -5,6 +5,9 @@
     <div class="col-md-5 p-lg-5 mx-auto my-5">
       <h1 class="display-6 font-weight-normal">Aradhya Hospital</h1>
       <p class="lead font-weight-normal">Not just better healthcare, but a better healthcare experience.</p>
+      {% if not user.is_authenticated %}
+      <h3><a href="{% url 'signin' %}">Own Aradhya Hospital</a></h3>
+      {% endif %}
     </div>
     <div class="product-device shadow-sm d-none d-md-block"></div>
     <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
