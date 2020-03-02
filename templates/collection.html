@@ -1,30 +1,40 @@
 {% extends 'layout.html' %}
 {% block content %}
-
-<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-    <div class="col-md-5 p-lg-5 mx-auto my-5">
+{% load static %}
+<style>
+body{
+  background-image: url("{% static 'hos10.png' %}");
+  background-size:100%;
+}
+</style>
+    <div class="col-md-3 p-lg-3 mx-auto my-5">
       <form method="POST" action="{% url 'collection' %}">
         {% csrf_token %}
-      <h4>Start Date: <input type="date" name="date1" id="date1"></h4>
-      <h4>End Date: <input type="date" name="date2" id="date2"></h4>
+      <div class="container">
+        <h4 align="center">Cash Collection</h4>
+        <label for="email">From</label>
+      <input class="form-control" type="date" name="date1" id="date1">
+      <label for="email">To</label>
+      <input class="form-control" type="date" name="date2" id="date2"><br>
       <input type="submit" class="btn btn-success">
+      </div>
     </form>
-    <h1 style="font-size:50px;color: green;" class="display-6 font-weight-normal"><strong>Cash Collection</strong></h1>
-      <h1 class="display-6 font-weight-normal">&#8377 {{cash}}</h1>
-      <h1 class="display-6 font-weight-normal">{{message}}</h1>
+    </div>
+    <div class="col-md-3 p-lg-3 mx-auto my-5">
+      <h4 align="center" class="display-6 font-weight-normal">&#8377 {{cash}}</h4>
+      <h4 class="display-6 font-weight-normal">{{message}}</h4>
       {% if cash %}
       {% if cash < 1000 %}
-      <h3>&#128527</h3>
+      <h4 align="center">&#128527</h4>
       {% elif cash > 1000 and cash < 2000 %}
-      <h3>&#128515</h3>
+      <h4 align="center">&#128515</h4>
       {% else %}
-      <h3>&#128513</h3>
+      <h4 align="center">&#128513</h4>
       {% endif %}
       {% endif %}
 
     </div>
     <div class="product-device shadow-sm d-none d-md-block"></div>
     <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
-  </div>
   
 {% endblock %}

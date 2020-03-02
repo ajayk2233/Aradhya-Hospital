@@ -17,7 +17,9 @@
         <th><a style="color: white;" href="/patient_view/patient_personal_details/-patient_age">Age</a></th>
         <th><a style="color: white;" href="/patient_view/patient_personal_details/-patient_ID">P-ID</a></th>
         <th><a style="color: white;" href="/patient_view/patient_personal_details/-patient_registration_date">Reg-Date</a></th>
-        <th style="color: white;" colspan="2">Actions</th>
+        <th colspan="2">
+            <a href="{% url 'create_patient' %}"><h5 class="btn btn-outline-warning">Add New</h5></a>
+        </th>
     </tr>
     {% for record in patient %}
     <tr>
@@ -28,7 +30,10 @@
     <td style="border-bottom:1px solid rgb(255, 166, 0);">{{ record.patient_age }}</td>
     <td style="border-bottom:1px solid rgb(255, 166, 0);">{{ record.patient_ID }}</td>
     <td style="border-bottom:1px solid rgb(255, 166, 0);">{{ record.patient_registration_date }}</td>
-    <td style="border-bottom:1px solid rgb(255, 166, 0);"><aa class="btn btn-success"  href="/patient_view/">Comming Soon</td>
+    <td style="border-bottom:1px solid rgb(255, 166, 0);">
+        <a class="btn btn-sm btn-outline-success"  href="#">Edit</td>
+    <td style="border-bottom:1px solid rgb(255, 166, 0);">
+        <a class="btn btn-sm btn-outline-danger" href="#">Delete</td>
     </tr>
     {% endfor %}
 </table>

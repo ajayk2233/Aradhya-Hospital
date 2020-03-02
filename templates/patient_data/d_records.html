@@ -21,7 +21,8 @@
     <td style="border-bottom:1px solid rgb(255, 166, 0);">{{ record.doctor_age }}</td>
     <td style="border-bottom:1px solid rgb(255, 166, 0);">{{ record.doctor_ID }}</td>
     <td style="border-bottom:1px solid rgb(255, 166, 0);">{{ record.doctor_join_date }}</td>
-    <td style="border-bottom:1px solid rgb(255, 166, 0);"><a href="{% url 'patient_view' %}">back</td>
+    <td style="border-bottom:1px solid rgb(255, 166, 0);">
+        <a class="btn btn-sm btn-outline-info" href="{% url 'patient_view' %}">back</td>
     </tr>
     <br><br>
 </table>

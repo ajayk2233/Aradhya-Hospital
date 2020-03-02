@@ -1,45 +1,51 @@
 {% extends 'layout.html' %}
 {% block content %}
+{% load static %}
+{% if message %}
+    <p align="center" style="color:red;"><b>{{message}}</b></p>
+    {% endif %}
+<style>
+body{
+  background-image: url("{% static 'hos7.jpg' %}");
+  background-size:100%;
+}
+</style>
+<body>
+  <div class="col-md-5 p-lg-5 mx-auto my-5">
+    <h1 class="display-6 font-weight-normal" align="center">Career</h1>
+    <p class="lead font-weight-normal">Be a part of Aradhya Hospital & Sky Rocket your Career</p>
 
-<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-    <div class="col-md-5 p-lg-5 mx-auto my-5">
-      <h1 class="display-6 font-weight-normal">Career</h1>
-      <p class="lead font-weight-normal">Be a part of Aradhya Hospital & reach pinacal of success</p>
-      
-      <div class="col-md-8 order-md-1"></div>
-      <form class="needs-validation" method="POST" action="{% url 'career' %}">
-        {% csrf_token %}
-        <div class="mb-3">
-          <label for="email">Email</label>
-          <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com">
-          <div class="invalid-feedback">
-            Please enter a valid email address for shipping updates.
-          </div>
+    <form class="needs-validation" method="POST" action="{% url 'career' %}">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com">
+        <div class="invalid-feedback">
+          Please enter a valid email address.
         </div>
-        <div class="mb-3">
-          <label for="country">Country</label>
-          <select name="job_post" class="custom-select d-block w-100" id="job_post" required>
-            <option value="">Choose...</option>
-            <option>Doctor</option>
-            <option>Nurse</option>
-            <option>Surgeon</option>
-            <option>Wardboy</option>
-          </select>
-          <div class="invalid-feedback">
-            Please select a valid country.
-          </div>
+      </div>
+      <div class="mb-3">
+        <label for="country">Select Role</label>
+        <select name="job_post" class="custom-select d-block w-100" id="job_post" required>
+          <option value="">Choose...</option>
+          <option>Doctor</option>
+          <option>Nurse</option>
+          <option>Surgeon</option>
+          <option>Wardboy</option>
+        </select>
+        <div class="invalid-feedback">
+          Please select a valid Role.
         </div>
+      </div>
         <input type="submit" value="Apply" class="btn btn-primary">
-        </form>
-        {% if message %}
-       <p style="color:green;">{{message}}</p>
-        {% endif %}
-        </div>
-
-    </div>
-    <div class="product-device shadow-sm d-none d-md-block"></div>
-    <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+    </form>
+    
   </div>
 
-  
+  <div class="product-device shadow-sm d-none d-md-block"></div>
+  <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+
+</body>
+
+
 {% endblock %}

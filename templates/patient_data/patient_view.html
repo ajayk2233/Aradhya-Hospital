@@ -13,7 +13,9 @@
         <th><h5>OPD ID</h5></th>
         <th><h5>Patient Name</h5></th>
         <th><h5>Date</h5></th>
-        <th colspan="2"><a href="{% url 'create_record' %}"><h5 class="btn btn-warning">Create New</h5></a></th>
+        <th colspan="2">
+            <a href="{% url 'create_record' %}"><h5 class="btn btn-outline-warning">Create New</h5></a>
+        </th>
     </tr>
 {% for record in records %}
     <tr style="border-bottom:1px solid rgb(255, 166, 0);">
@@ -22,8 +24,8 @@
 
         <td>{{ record.date_created }}</td>
         <td>
-            <a class="btn btn-success" href="/patient_view/details/{{record.id}}">Details</a>
-            <a class="btn btn-success" href="/patient_view/update_record/{{record.id}}">Edit</a>
+            <a class="btn btn-sm btn-outline-success" href="/patient_view/details/{{record.id}}">Details</a>
+            <a class="btn btn-sm btn-outline-danger" href="/patient_view/update_record/{{record.id}}">Edit</a>
         </td>
     </tr>
 

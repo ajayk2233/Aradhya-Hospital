@@ -87,7 +87,7 @@ def contactus(request):
         contact.email = email
         contact.message = message
         contact.save()
-        message = f"Congratulations {contact.name} We will get back to you soon."
+        message = f"Thank you for contacting us {contact.name} We will get back to you soon."
         return render(request, 'contactus.html',{'message':message})
     return render(request, 'contactus.html')
 

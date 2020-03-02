@@ -1,5 +1,6 @@
 {% extends  'layout.html' %}
 {% block content %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,14 +8,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{title}}</title>
 </head>
+<style>
+  body{
+        background-image: url("{% static 'hos10.png' %}");
+        background-size:100%;
+      }
+</style>
 <body class="text-center">
+  <div class="col-md-5 p-lg-5 mx-auto my-5">
     <form action="{{request.build_absolute_uri}}" method="POST" class="form-signin">
         {% csrf_token %}
-      <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+      <img class="mb-4" src="{% static 'hos8.jpeg' %}" alt="" width="72" height="72">
       <h1 class="h3 mb-3 font-weight-normal">Own Aradhya Hospital</h1>
-      <label for="inputEmail" class="sr-only">Username</label>
       <input type="text" id="inputEmail" name="username" class="form-control" placeholder="Username" required autofocus>
-      <label for="inputPassword" class="sr-only">Password</label>
+      <br>
       <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
       <div class="checkbox mb-3">
         <label>
@@ -26,6 +33,7 @@
     {{message}}
     {% endif %}
     </form>
+  </div>
   </body>
     
         
