@@ -36,7 +36,6 @@
         user-select: none;
       }
       body{
-        /* background-image: url("{% static 'hos16.jpg' %}"); */
         background-color:rgb(243, 230, 219);
         background-size:100%;
       }
@@ -51,7 +50,8 @@
     <link href="product.css" rel="stylesheet">
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom shadow-lg">
       <a class="navbar-brand" href="#">Aradhya</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -78,13 +78,20 @@
             <li class="nav-item active">
               <a class="nav-link" href="{% url 'collection' %}">Daily Collection</a>
             </li>
-            {% endif %}
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'career_record' %}">Career</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'contactus_record' %}">Contact Us</a>
+            </li>
+            {% else %}
             <li class="nav-item active">
               <a class="nav-link" href="{% url 'career' %}">Career</a>
             </li>
             <li class="nav-item active">
               <a class="nav-link" href="{% url 'contactus' %}">Contact Us</a>
             </li>
+            {% endif %}
             {% if user.is_authenticated %}
             <li class="nav-item active">
               <a class="nav-link" href="javascript:{document.getElementById('delete').submit()}">Logout</a>
@@ -95,10 +102,10 @@
             </form>
             {% endif %}
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+        <form class="form-inline mt-1 mt-md-0">
+          <input class="form-control mr-sm-3" type="text" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-secondary" type="submit">Search</button>
+      </form>
       </div>
     </nav>
     <br>

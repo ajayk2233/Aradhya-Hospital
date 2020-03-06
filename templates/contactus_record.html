@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<h1 align='center'>Aradhya Hospital</h1>
+<h2 align='center'>Contact US Records</h2>
+<table align="center" cellpadding=10px>
+    <tr align="center"
+    style="
+    font-size: larger;
+    background-color:rgb(74, 165, 74);
+    color: white;
+    border-bottom:1px solid rgb(247, 84, 8);">
+        <th><h5>Name</h5></th>
+        <th><h5>Email</h5></th>
+        <th><h5>Message</h5></th>
+        <th><h5>Status</h5></th>
+        <th><h5>Action</h5></th>
+    </tr>
+{% for r in records %}
+    <tr style="border-bottom:1px solid rgb(255, 166, 0);">
+        <td>{{ r.name }}</td>
+        <td>{{ r.email }}</td>
+        <td>{{ r.message }}</td>
+        {% if r.status == 'Unchecked' %}
+        <td>
+            <form method="POST" action="/patient_view/contactus_record/{{r.id}}/">
+              {% csrf_token %}
+              <input class="btn btn-sm btn-outline-secondary" type="submit" value="{{r.status}}">
+          </form>
+        </td>
+        {% else %}
+        <td>
+          <button class="btn btn-sm btn-outline-secondary" href="#" disabled>{{r.status}}</button>
+        </td>
+      {% endif %}
+      <td>
+        <form action="/patient_view/delete_contactus/{{r.id}}/" method="POST">{% csrf_token %}
+          <input class="btn btn-sm btn-outline-danger" type="submit" value="Delete">
+        </form>
+      </td>
+    </tr>
+
+{% endfor %}
+</table>
+{% endblock %}

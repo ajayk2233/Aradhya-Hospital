@@ -3,22 +3,78 @@
 {% load static %}
 
 <style>
-  body{
-  background-image: url("{% static 'hos7.jpg' %}");
-  background-size:100%;
+  body {
+    background-image: url("{% static 'hos7.jpg' %}");
+    background-attachment: fixed;
+    background-size: 100%;
+    /* background:white url("{% static 'hos7.jpg' %}") repeat fixed;
+    width: 300px;
+    height: 200px; */
+  }
+  .display-4 {
+    text-shadow: rgb(0, 17, 255) 1px 0 10px;
+  }
+  .white-text-with-blue-shadow {
+  text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+  color: white;
+  font: 3.5em Georgia, serif;
 }
 </style>
 
 <body>
   <home align="center">
-      <h1 style="font-family:cursive;" class="display-6 font-weight-normal"><b>Aradhya Hospital</b></h1>
-      
-      <h3 style="font-family: 'Courier New', Courier, monospace;color:rgb(243, 93, 6);" class="font-weight-normal"><b>Not just better healthcare,<br>but a better healthcare<br>experience.</b></h3>
-      {% if not user.is_authenticated %}
-      <h3><a href="{% url 'signin' %}">Own Aradhya Hospital</a></h3>
-      {% endif %}
-      <br><br><br><br><br><br><br><br><br><br><br><br>
-    </home>
-    
+    <h1 class="white-text-with-blue-shadow">Aradhya Hospital</h1>
+    <h3 class="display-6">
+      <marquee behavior="alternate">
+        Not just better healthcare, but a better healthcare experience.
+      </marquee>
+    </h3>
+    {% if not user.is_authenticated %}
+    <h3><a class="display-6" href="{% url 'signin' %}">Own Aradhya Hospital</a></h3>
+    {% endif %}
+    <br><br><br><br><br><br><br><br><br><br><br>
+    <div class="container marketing">
+      <div class="row">
+        <div class="col-lg-4">
+          <img src="{% static 'hos23.png' %}" class="bd-placeholder-img rounded-circle" width="180" height="180">
+          <h2>Dr. Ajay</h2>
+          <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies
+            vehicula ut id elit.</p>
+        </div>
+        <div class="col-lg-4">
+          <img src="{% static 'hos26.png' %}" class="bd-placeholder-img rounded-circle" width="180" height="180">
+          <h2>Dr. Aradhya</h2>
+          <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies
+            vehicula ut id elit.</p>
+        </div>
+        <div class="col-lg-4">
+          <img src="{% static 'hos27.png' %}" class="bd-placeholder-img rounded-circle" width="180" height="180">
+          <h2>Dr. Aradhya</h2>
+          <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies
+            vehicula ut id elit.</p>
+        </div>
+        <div class="col-lg-4">
+          <img src="{% static 'hos23.png' %}" class="bd-placeholder-img rounded-circle" width="180" height="180">
+          <h2>Dr. Ajay</h2>
+          <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies
+            vehicula ut id elit.</p>
+        </div>
+        <div class="col-lg-4">
+          <img src="{% static 'hos26.png' %}" class="bd-placeholder-img rounded-circle" width="180" height="180">
+          <h2>Dr. Aradhya</h2>
+          <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies
+            vehicula ut id elit.</p>
+        </div>
+        <div class="col-lg-4">
+          <img src="{% static 'hos27.png' %}" class="bd-placeholder-img rounded-circle" width="180" height="180">
+          <h2>Dr. Aradhya</h2>
+          <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies
+            vehicula ut id elit.</p>
+        </div>
+      </div>
+    </div>
+
+  </home>
+
 </body>
 {% endblock %}

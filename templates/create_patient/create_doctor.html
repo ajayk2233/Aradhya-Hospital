@@ -2,33 +2,58 @@
 {% block content %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{title}}</title>
 </head>
+
 <body>
-    <form method="POST">
-    {% csrf_token %}
-    <div align="center"><br><hr>
-        {{form.doctor_name.label_tag}}
-            {{form.doctor_name}}
-        {{form.doctor_address.label_tag}}
-            {{form.doctor_address}}
-        {{form.doctor_city.label_tag}}
-            {{form.doctor_city}}<br><hr>
-        {{form.doctor_contact.label_tag}}
-            {{form.doctor_contact}}
-        {{form.doctor_age.label_tag}}
-            {{form.doctor_age}}
-        {{form.doctor_ID.label_tag}}
-            {{form.doctor_ID}}<br><hr>
-        <input type="submit" value="Add Doctor" class="btn btn-primary">
-        <a href="{% url 'doctor_personal_details' %}" class="btn btn-danger">Cancel</a>
+    <div class="container">
+        <form method="POST" class="form-row">{% csrf_token %}
+            <div class="row">
+                <div align="center" class="col-md-12 order-md-1"><hr>
+                    <h3>Add New Doctor</h3><hr>
+                </div>
+                <div class="col-md-5 order-md-1">
+                    {{form.doctor_name.label_tag}}
+                    {{form.doctor_name}}
+                </div>
+                <div class="col-md-4 order-md-1">
+                    {{form.doctor_city.label_tag}}
+                    {{form.doctor_city}}
+                </div>
+                <div class="col-md-3 order-md-1">
+                    {{form.doctor_contact.label_tag}}
+                    {{form.doctor_contact}}
+                </div>
+                <div class="col-md-12 order-md-1">
+                    {{form.doctor_address.label_tag}}
+                    {{form.doctor_address}}
+                </div>
+                <div class="col-md-3 order-md-1">
+                    {{form.doctor_age.label_tag}}
+                    {{form.doctor_age}}
+                </div>
+                <div class="col-md-3 order-md-1">
+                    {{form.doctor_ID.label_tag}}
+                    {{form.doctor_ID}}
+                </div>
+                <div class="col-md-3 order-md-2">
+                    <hr><input type="submit" value="Add Patient" class="form-control btn btn-primary">
+                </div>
+                <div class="col-md-3 order-md-2">
+                    <hr><a href="{% url 'doctor_personal_details' %}" class="form-control btn btn-danger">Cancel</a>    
+                </div>
+                <div class="col-md-12 order-md-2">
+                    <br><hr><br><br><hr>
+                </div>
+            </div>
+        </form>
     </div>
-    </form>
-    
 </body>
+
 </html>
 
 {% endblock %}

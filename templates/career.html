@@ -2,12 +2,12 @@
 {% block content %}
 {% load static %}
 {% if message %}
-    <p align="center" style="color:red;"><b>{{message}}</b></p>
+    <h3 align="center" class="display-5" style="color:red;">{{message}}</h3>
     {% endif %}
 <style>
 body{
   background-image: url("{% static 'hos7.jpg' %}");
-  background-size:100%;
+  background-size:cover;
 }
 </style>
 <body>

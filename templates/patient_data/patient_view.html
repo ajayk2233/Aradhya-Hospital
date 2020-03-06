@@ -1,34 +1,34 @@
 {% extends 'layout.html' %}
 {% block content %}
-
-<h1 align='center'>Aradhya Hospital</h1>
-<h2 align='center'>OPD Record</h2>
+<h2 align='center' class="display-4">OPD Record</h2>
 <table align="center" cellpadding=10px>
-    <tr align="center"
-    style="
-    font-size: larger;
-    background-color:rgb(74, 165, 74);
+    <tr align="center" style="
+    font-size: large;
+    background-color:rgba(0, 0, 0, 0.274);
     color: white;
-    border-bottom:1px solid rgb(247, 84, 8);">
-        <th><h5>OPD ID</h5></th>
-        <th><h5>Patient Name</h5></th>
-        <th><h5>Date</h5></th>
+    border-bottom:1px solid rgb(5, 2, 0);">
+        <th class="display-5">OPD ID</th>
+        <th class="display-5">Patient Name</th>
+        <th class="display-5">Date</th>
         <th colspan="2">
-            <a href="{% url 'create_record' %}"><h5 class="btn btn-outline-warning">Create New</h5></a>
+            <a class="btn btn-secondary" href="{% url 'create_record' %}">Create New</a>
         </th>
+
     </tr>
-{% for record in records %}
-    <tr style="border-bottom:1px solid rgb(255, 166, 0);">
+    {% for record in records %}
+    <tr style="border-bottom:1px solid rgb(0, 0, 0);">
         <td>{{ record.id }}</td>
-        <td><a style="color:black;" href="p_records/{{ record.patient.id }}"><u>{{ record.patient }}</u></a></td>
+        <td><a style="color:black;" href="p_records/{{ record.patient.id }}"><u>{{ record.patient }}</u></a>
+        </td>
 
         <td>{{ record.date_created }}</td>
         <td>
             <a class="btn btn-sm btn-outline-success" href="/patient_view/details/{{record.id}}">Details</a>
-            <a class="btn btn-sm btn-outline-danger" href="/patient_view/update_record/{{record.id}}">Edit</a>
+            <a class="btn btn-sm btn-outline-secondary" href="/patient_view/update_record/{{record.id}}">Edit</a>
+            <a class="btn btn-sm btn-outline-danger" href="/patient_view/delete_record/{{record.pk}}">Delete</a>
         </td>
     </tr>
 
-{% endfor %}
+    {% endfor %}
 </table>
 {% endblock %}

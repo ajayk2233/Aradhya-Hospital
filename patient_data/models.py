@@ -37,11 +37,15 @@ class Record(models.Model):
         return f"patient: {self.patient.patient_name}"
 
 class Career(models.Model):
+    choice = [('Checked','Checked'),('Unchecked','Unchecked')]
     email = models.EmailField()
     job_post = models.CharField(max_length=20)
     date_applied = models.DateField(auto_now_add=True,blank=True,null=True)
+    status = models.CharField(max_length=10,default="Unchecked",choices=choice)
 
 class ContactUs(models.Model):
+    choice = [('Checked','Checked'),('Unchecked','Unchecked')]
     name = models.CharField(max_length=30)
     email = models.EmailField()
     message = models.TextField()
+    status = models.CharField(max_length=10,default="Unchecked",choices=choice)

@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% block content %}
+{% load static %}
+
+<style>
+  body{
+  background-image: url("{% static 'hos6.jpg' %}");
+  background-size:100%;
+}
+</style>
+
+<body>
+  <home align="center">
+      <h1 style="font-family:cursive;" class="display-6 font-weight-normal"><b>Are you sure you want to delete Record?</b></h1>
+      <form method = 'POST'>
+        {% csrf_token %}
+        <input class="btn btn-sm btn-outline-danger" type="submit" value="Delete">
+        <a class="btn btn-sm btn-outline-secondary" href="{% url 'patient_view' %}">Cancel</a>
+      </form>
+    </home>
+    
+</body>
+{% endblock %}

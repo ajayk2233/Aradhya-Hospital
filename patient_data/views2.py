@@ -21,6 +21,14 @@ class UpdateRecord(UpdateView):
         id = self.kwargs['pk']
         return Record.objects.filter(pk=id)
 
+# Delete OPD Record
+@method_decorator(login_required(login_url='/authentication/'),name='dispatch')
+class DeleteRecord(DeleteView):
+    model = Record
+    success_url = '/patient_view/'
+    template_name_suffix = '_confirm_delete'
+
+
 # Create Patient Record
 @method_decorator(login_required(login_url='/authentication/'),name='dispatch')
 class CreatePatient(CreateView):
@@ -38,6 +46,13 @@ class UpdatePatient(UpdateView):
         id = self.kwargs['pk']
         return Patient.objects.filter(pk=id)
 
+# Delete Patient Record
+@method_decorator(login_required(login_url='/authentication/'),name='dispatch')
+class DeletePatient(DeleteView):
+    model = Patient
+    success_url = '/patient_view/patient_personal_details/'
+    template_name_suffix = '_confirm_delete'
+
 # Create Doctor Record
 @method_decorator(login_required(login_url='/authentication/'),name='dispatch')
 class CreateDoctor(CreateView):
@@ -54,3 +69,10 @@ class UpdateDoctor(UpdateView):
     def get_queryset(self):
         id = self.kwargs['pk']
         return Doctor.objects.filter(pk=id)
+
+# Delete Patient Record
+@method_decorator(login_required(login_url='/authentication/'),name='dispatch')
+class DeleteDoctor(DeleteView):
+    model = Doctor
+    success_url = '/patient_view/doctor_personal_details/'
+    template_name_suffix = '_confirm_delete'

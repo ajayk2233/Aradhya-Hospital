@@ -77,6 +77,20 @@ def career(request):
         return render(request, 'career.html',{'message':message})
     return render(request, 'career.html')
 
+def career_record(request,id=None):
+    if request.method == 'POST':
+        record = Career.objects.get(id=id)
+        record.status = 'Checked'
+        record.save()
+    records = Career.objects.all()
+    return render(request, 'career_record.html',{'records':records})
+
+def delete_career(request,id):
+    if request.method == 'POST':
+        record = Career.objects.get(id=id)
+        record.delete()
+        return redirect('/patient_view/career_record')
+
 def contactus(request):
     if request.method == 'POST':
         contact = ContactUs()
@@ -91,3 +105,17 @@ def contactus(request):
         return render(request, 'contactus.html',{'message':message})
     return render(request, 'contactus.html')
 
+def contactus_record(request,id=None):
+    if request.method == 'POST':
+        record = ContactUs.objects.get(id=id)
+        record.status = 'Checked'
+        record.save()
+        return redirect('/patient_view/contactus_record')
+    records = ContactUs.objects.all()
+    return render(request, 'contactus_record.html',{'records':records})
+
+def delete_contactus(request,id):
+    if request.method == 'POST':
+        record = ContactUs.objects.get(id=id)
+        record.delete()
+        return redirect('/patient_view/contactus_record')

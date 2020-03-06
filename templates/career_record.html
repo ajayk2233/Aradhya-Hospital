@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<h1 align='center'>Aradhya Hospital</h1>
+<h2 align='center'>Career Records</h2>
+<table align="center" cellpadding=10px>
+    <tr align="center"
+    style="
+    font-size: larger;
+    background-color:rgb(74, 165, 74);
+    color: white;
+    border-bottom:1px solid rgb(247, 84, 8);">
+        <th><h5>Email</h5></th>
+        <th><h5>Post</h5></th>
+        <th><h5>Applied Date</h5></th>
+        <th><h5>Status</h5></th>
+        <th><h5>Action</h5></th>
+    </tr>
+{% for record in records %}
+    <tr style="border-bottom:1px solid rgb(255, 166, 0);">
+        <td>{{ record.email }}</td>
+        <td>{{ record.job_post }}</td>
+        <td>{{ record.date_applied }}</td>
+        {% if record.status == 'Unchecked' %}
+        <td>
+            <form method="POST" id="check" action="/patient_view/career_record/{{record.id}}/">
+              {% csrf_token %}
+              <input class="btn btn-sm btn-outline-secondary" type="submit" value="{{record.status}}">
+          </form>
+        </td>
+        {% else %}
+        <td>
+          <button class="btn btn-sm btn-outline-secondary" href="#" disabled>{{record.status}}</button>
+      </td>
+      {% endif %}
+      <td><form method="POST" action="/patient_view/delete_career/{{record.id}}/">{% csrf_token %}
+        <input type="submit" value="Delete" class="btn btn-sm btn-outline-danger">
+    </form></td>
+    </tr>
+
+{% endfor %}
+</table>
+{% endblock %}

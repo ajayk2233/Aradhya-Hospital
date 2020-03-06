@@ -11,6 +11,8 @@ urlpatterns = [
     path('create_record/',views2.CreateRecord.as_view(),name='create_record'),
 # Update OPD Record
     path('update_record/<int:pk>',views2.UpdateRecord.as_view(),name='update_record'),
+# Delete OPD Record
+    path('delete_record/<int:pk>/',views2.DeleteRecord.as_view(),name='delete_record'),
 
 # 2 Patient
 # Show Patients Personal Record
@@ -25,6 +27,8 @@ urlpatterns = [
     path('patient_personal_details/<str:col_name>',views.patient_personal_details,name='patient_personal_details'),
 # Show Patient Personal Details Sort by Ascending Order
     path('patient_personal_order_by/<str:col_name>',views.patient_personal_order_by,name='patient_personal_order_by'),
+# Delete OPD Record
+    path('delete_patient/<int:pk>/',views2.DeletePatient.as_view(),name='delete_patient'),
 
 # 3 Doctor
 # Show Doctor Personal Records
@@ -35,11 +39,22 @@ urlpatterns = [
     path('create_doctor/',views2.CreateDoctor.as_view(),name='create_doctor'),
 # Update Doctor Personal Record
     path('update_doctor/<int:pk>',views2.UpdateDoctor.as_view(),name='update_doctor'),
+# Delete Doctor Personal Record
+    path('delete_doctor/<int:pk>',views2.DeleteDoctor.as_view(),name='delete_doctor'),
 
 # Daily/Selected Duration Collection
     path('collection/',views.collection,name='collection'),
 # Career Option
     path('career/',views.career,name='career'),
-# Career Option
+# Career Record List
+    path('career_record/<int:id>/',views.career_record,name='career_record'),
+    path('career_record/',views.career_record,name='career_record'),
+    path('delete_career/<int:id>/',views.delete_career,name='delete_career'),
+# Contact Option
     path('contactus/',views.contactus,name='contactus'),
+# Contact Record List
+    path('contactus_record/',views.contactus_record,name='contactus_record'),
+    path('contactus_record/<int:id>/',views.contactus_record,name='contactus_record'),
+    path('delete_contactus/<int:id>/',views.delete_contactus,name='delete_contactus'),
+    
 ]
