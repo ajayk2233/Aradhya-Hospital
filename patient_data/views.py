@@ -3,10 +3,19 @@ from .models import Record,Doctor,Patient,Career,ContactUs
 from django.contrib.auth.decorators import login_required
 # Show all OPD Record
 
-# OPD Record Filter by Date
+# OPD Record Filter by Date & Even Search by Date, Name
 @login_required(login_url='/authentication/')
 def patient_view(request):
-    records = Record.objects.all().order_by('-date_created')
+    if request.method == 'POST':
+        try:
+            records = Record.objects.filter(patient__patient_name__contains=request.POST.get('name'))
+            if records:
+                records = Record.objects.all().order_by('-date_created')
+                return render(request, 'patient_data/patient_view.html',{'records':records})
+        except:
+            records = Record.objects.all().order_by('-date_created')
+    else:
+        records = Record.objects.all().order_by('-date_created')
     return render(request, 'patient_data/patient_view.html',{'records':records})
 
 # Show all Patient Personal Details

@@ -1,34 +1,52 @@
 {% extends 'layout.html' %}
 {% block content %}
-<h2 align='center' class="display-4">OPD Record</h2>
-<table align="center" cellpadding=10px>
-    <tr align="center" style="
-    font-size: large;
-    background-color:rgba(0, 0, 0, 0.274);
-    color: white;
-    border-bottom:1px solid rgb(5, 2, 0);">
-        <th class="display-5">OPD ID</th>
-        <th class="display-5">Patient Name</th>
-        <th class="display-5">Date</th>
-        <th colspan="2">
-            <a class="btn btn-secondary" href="{% url 'create_record' %}">Create New</a>
-        </th>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 order-md-1">
+            <h2 align='center' class="display-4">OPD Record</h2>
+            <h3 align='center' class="display-6">Total Records = {{ records.count }}</h3> 
+            <table align="center" cellpadding=10px>
+                <tr align="center" style="
+                    font-size: large;
+                    background-color:rgba(0, 0, 0, 0.274);
+                    color: white;
+                    border-bottom:1px solid rgb(5, 2, 0);">
+                    <th class="display-5">OPD ID</th>
+                    <th class="display-5">Patient Name</th>
+                    <th class="display-5">Date</th>
+                    <th colspan="2">
+                        <a class="btn btn-secondary" href="{% url 'create_record' %}">Create New</a>
+                    </th>
 
-    </tr>
-    {% for record in records %}
-    <tr style="border-bottom:1px solid rgb(0, 0, 0);">
-        <td>{{ record.id }}</td>
-        <td><a style="color:black;" href="p_records/{{ record.patient.id }}"><u>{{ record.patient }}</u></a>
-        </td>
+                </tr>
+                
+                
+                {% for record in records %}
+                <tr style="border-bottom:1px solid rgb(0, 0, 0);">
+                    <td>{{ record.id }}</td>
+                    <td><a style="color:black;" href="p_records/{{ record.patient.id }}"><u>{{ record.patient }}</u></a>
+                    </td>
 
-        <td>{{ record.date_created }}</td>
-        <td>
-            <a class="btn btn-sm btn-outline-success" href="/patient_view/details/{{record.id}}">Details</a>
-            <a class="btn btn-sm btn-outline-secondary" href="/patient_view/update_record/{{record.id}}">Edit</a>
-            <a class="btn btn-sm btn-outline-danger" href="/patient_view/delete_record/{{record.pk}}">Delete</a>
-        </td>
-    </tr>
+                    <td>{{ record.date_created }}</td>
+                    <td>
+                        <a class="btn btn-sm btn-outline-success" href="/patient_view/details/{{record.id}}">Details</a>
+                        <a class="btn btn-sm btn-outline-secondary"
+                            href="/patient_view/update_record/{{record.id}}">Edit</a>
+                        <a class="btn btn-sm btn-outline-danger"
+                            href="/patient_view/delete_record/{{record.pk}}">Delete</a>
+                    </td>
+                </tr>
 
-    {% endfor %}
-</table>
+                {% endfor %}
+            </table>
+        </div>
+        <div class="col-md-4 order-md-1">
+            <form method="POST" action="/patient_view/" class="form-inline mt-1 mt-md-0">{% csrf_token %}
+                <input name="name" id="name" class="form-control mr-sm-3" type="text" placeholder="Search"
+                    aria-label="Search">
+                <input class="btn btn-outline-secondary" value="Search" type="submit">
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock %}
