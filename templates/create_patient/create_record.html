@@ -17,11 +17,11 @@
                     <h3>Add OPD Record</h3>
                 </div>
                 <div class="col-md-4 order-md-1">
-                    {{form.doctor.label_tag}}
+                    {{form.doctor.label_tag}}<a style="color:rgb(0, 0, 0);" href="{% url 'create_doctor' %}"><b> Add Doctor</b></a>
                     {{form.doctor}}
                 </div>
                 <div class="col-md-4 order-md-1">
-                    {{form.patient.label_tag}}
+                    {{form.patient.label_tag}}<a style="color:rgb(0, 0, 0);" href="{% url 'create_patient' %}"><b> Add Patient</b></a>
                     {{form.patient}}
                 </div>
                 <div class="col-md-4 order-md-1">
